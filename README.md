@@ -13,4 +13,4 @@ Create a car dealership application which stores information about dealerships a
 ## Note:
 
 * This website is mobile responsive using Bootstrap
-* This website is deployed on Heroku: https://guarded-meadow-73270.herokuapp.com/
+* This website is deployed on Heroku: https://vehicle-dealership.herokuapp.com/

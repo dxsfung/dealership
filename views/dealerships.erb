@@ -9,11 +9,20 @@
 <h3 class="text-center">Click one to view more:</h3>
 
 <% @dealerships.each() do |dealership| %>
-  <form action="/dealerships/<%= dealership.id %>">
-      <button class="btn btn-success btn-cons center-block">
-          <%= dealership.name() %>
-      </button>
-  </form>
+  <% if dealership != nil %>
+    <div class="row text-center">
+      <form style="display: inline-block" action="/dealerships/<%= dealership.id %>">
+          <button class="btn btn-success btn-cons center-block">
+              <%= dealership.name() %>
+          </button>
+      </form>
+      <form style="display: inline-block" action="/del_dealerships/<%= dealership.id %>">
+          <button class="btn btn-danger btn-cons center-block">
+              delete
+          </button>
+      </form>
+    </div>
+  <% end %>
 <% end %>
 
 <form action="/dealerships/new">

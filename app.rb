@@ -25,8 +25,20 @@ post('/dealerships') do
 end
 
 get('/dealerships/:id') do
-  @dealership = Dealership.find(params.fetch('id').to_i())
+  @dealership = Dealership.find(params.fetch('id').to_i)
   erb(:dealership)
+end
+
+get('/del_dealerships/:id') do
+
+  @cars = Dealership.find_cars(params.fetch('id').to_i)
+  @dealership = Dealership.delete(params.fetch('id').to_i())
+
+      @cars.each do |vehicle|
+      @vehicle=Vehicle.delete(vehicle.id)
+      end
+
+  erb(:success)
 end
 
 get('/dealerships/:id/vehicles/new') do

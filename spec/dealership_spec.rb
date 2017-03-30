@@ -36,6 +36,7 @@ describe('Vehicle') do
             test_vehicle = Vehicle.new({:make => "Toyota", :model => "Noah", :year => 2014, :color => "yellow"})
             expect(test_vehicle.id).to(eq(2))
         end
+
     end
 
     describe(".find") do
@@ -47,6 +48,17 @@ describe('Vehicle') do
             expect(Vehicle.find(test_vehicle.id())).to(eq(test_vehicle))
         end
     end
+
+    describe(".delete") do
+        it("deletes a vehicle (put to nil) by its id number") do
+            test_vehicle = Vehicle.new({:make => "Toyota", :model => "Prius", :year => 2013, :color => "yellow"})
+            test_vehicle.save
+            test_vehicle2 = Vehicle.new({:make => "Toyota", :model => "Noah", :year => 2014, :color => "yellow"})
+            test_vehicle2.save
+            expect(Vehicle.delete(test_vehicle.id())).to(eq(nil))
+        end
+    end
+
 end # Vehicle class
 
 describe(Dealership) do

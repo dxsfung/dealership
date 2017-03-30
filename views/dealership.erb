@@ -9,14 +9,16 @@
 <h3 style="text-align: center">Here are all the cars in this dealership:</h3>
 
     <% @dealership.cars().each() do |car| %>
-    <form action="/vehicles/<%= car.id() %>">
-        <button class="btn btn-success btn-cons center-block">
-            <%= car.make %>
-            <%= car.model %>
-            <%= car.year %>
-            <%= car.color %>
-        </button>
-    </form>
+      <% if car != nil %>
+        <form action="/vehicles/<%= car.id() %>">
+            <button class="btn btn-success btn-cons center-block">
+                <%= car.make %>
+                <%= car.model %>
+                <%= car.year %>
+                <%= car.color %>
+            </button>
+        </form>
+      <% end %>
     <% end %>
 
 <form action="<%= @dealership.id%>/vehicles/new">
